@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
+
     defaultConfig {
         applicationId "com.bizkit.ftstudy"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion 19
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -16,28 +18,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
 }
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    // http://lucene.472066.n3.nabble.com/Issues-with-lucene-4-10-0-on-android-td4161204.html
+    implementation 'org.apache.lucene:lucene-memory:4.7.0'
+    implementation 'org.apache.lucene:lucene-core:4.7.0'
+    implementation 'org.apache.lucene:lucene-queryparser:4.7.0'
+    implementation 'org.apache.lucene:lucene-highlighter:4.7.0'
+    implementation 'org.apache.lucene:lucene-queries:4.7.0'
+    implementation 'org.apache.lucene:lucene-join:4.7.0'
+    implementation 'org.apache.lucene:lucene-analyzers-smartcn:4.7.0'
+    implementation 'org.apache.lucene:lucene-misc:4.7.0'
+    implementation 'org.ansj:ansj_seg:5.0.2'
+    implementation project(':ansj_lucene4_plugin')
+    // AndroidJUnitRunner and JUnit Rules
+    //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    //    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:design:28.0.0'
+    testImplementation "org.robolectric:robolectric:4.0-alpha-3"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-// https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
-    implementation group: 'org.apache.lucene', name: 'lucene-memory', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-core', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-queryparser', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-highlighter', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-queries', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-join', version: '4.1.0'
-    implementation group: 'org.apache.lucene', name: 'lucene-analyzers-smartcn', version: '4.1.0'
-
-
-
-
-
-
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14
+    testImplementation 'org.slf4j:slf4j-jdk14:1.7.25'
+    androidTestImplementation 'junit:junit:4.12'
 }

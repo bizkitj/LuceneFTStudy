@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="default_dic">
+        <item>释迦文佛</item>
+        <item>众生</item>
+        <item>明心见性</item>
+        <item>无明</item>
+        <item>世尊</item>
+        <item>禅宗</item>
+        <item>宗门</item>
+        <item>法相宗</item>
+        <item>六尘</item>
+        <item>十八界</item>
+        <item>六根</item>
+        <item>六识</item>
+        <item>心中心法</item>
+        <item>心中心</item>
+    </string-array>
+</resources>

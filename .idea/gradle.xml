@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ansj_lucene4_plugin" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
